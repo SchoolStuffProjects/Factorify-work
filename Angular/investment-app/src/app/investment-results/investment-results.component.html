@@ -1,0 +1,30 @@
+@if(!results) {
+    <p class="center">Enter values</p>
+} @else {
+    <table>
+        <thead>
+            <tr>
+                <th>Year</th>
+                <th>Investment Value</th>
+                <th>Interest (Year)</th>
+                <th>Total Interest</th>
+                <th>Invested Capital</th>
+                <th>Inflation (Year)</th>
+                <th>Buying power</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(result of results; track result.year){
+                <tr>
+                    <td>{{ result.year }}</td>
+                        <td>{{ result.valueEndOfYear | currency:'CZK':'symbol':'1.2-2':'cs-CZ' }}</td>
+                        <td>{{ result.interest | currency:'CZK':'symbol':'1.2-2':'cs-CZ' }}</td>
+                        <td>{{ result.totalInterest | currency:'CZK':'symbol':'1.2-2':'cs-CZ' }}</td>
+                        <td>{{ result.totalAmountInvested | currency:'CZK':'symbol':'1.2-2':'cs-CZ' }}</td>
+                        <td>{{ result.inflationLoss | currency:'CZK':'symbol':'1.2-2':'cs-CZ' }}</td>
+                        <td>{{ result.buyingPower | currency:'CZK':'symbol':'1.2-2':'cs-CZ' }}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

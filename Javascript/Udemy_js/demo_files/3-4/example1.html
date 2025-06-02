@@ -1,0 +1,13 @@
+<script>
+    var obj = {
+        greeting: "Hi there",
+        say:function() {
+            function doStuff() {
+                alert(this.greeting);
+            };
+            doStuff.call(obj);
+        }
+    }
+
+    console.log(obj.say())
+</script>
